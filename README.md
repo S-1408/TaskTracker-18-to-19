@@ -12,6 +12,7 @@ These are packages the app needs while it runs.
 | --- | --- |
 | `react` | Builds the interface from reusable components and manages UI state with hooks. |
 | `react-dom` | Mounts the React app into the page's `#root` element. |
+| `prop-types` | Provides runtime prop validation for the React 18 migration example. |
 
 ### Development dependencies
 
@@ -98,6 +99,9 @@ src/
     PageIntro/
       PageIntro.jsx
       PageIntro.module.css
+    PriorityBadge/
+      PriorityBadge.jsx
+      PriorityBadge.module.css
     PrivacyNote/
       PrivacyNote.jsx
       PrivacyNote.module.css
@@ -116,6 +120,12 @@ src/
     TaskList/
       TaskList.jsx
       TaskList.module.css
+    TaskStats/
+      TaskStats.jsx
+      TaskStats.module.css
+    TextField/
+      TextField.jsx
+      TextField.module.css
   hooks/        Task state and task actions
   utils/        Local-storage helpers
   App.jsx       Page composition and filter selection
@@ -123,6 +133,14 @@ src/
   index.jsx     React entry point
   styles.css    Global base/reset styles
 ```
+
+## React 18-to-19 migration examples
+
+- `PriorityBadge` uses function-component `propTypes` and `defaultProps`.
+- `TaskStats` is a class component with the legacy string ref `ref="box"`.
+- `TextField` uses `forwardRef` so `TaskForm` can focus its input when mounted.
+
+These are intentional React 18 examples for practicing the React 19 migration. Review and migrate them before upgrading; do not copy these legacy patterns into new components.
 
 ## Migration ideas: why, what, and how to measure
 

@@ -1,12 +1,13 @@
 import styles from "./TaskFooter.module.css";
+import TaskStats from "../TaskStats/TaskStats";
 
 function TaskFooter({ remainingCount, completedCount, onClearCompleted }) {
   return (
     <footer className={styles.listFooter}>
-      <span>
-        <strong>{remainingCount}</strong>{" "}
-        {remainingCount === 1 ? "task" : "tasks"} left
-      </span>
+      <TaskStats
+        remainingCount={remainingCount}
+        completedCount={completedCount}
+      />
       {completedCount > 0 && (
         <button
           type="button"

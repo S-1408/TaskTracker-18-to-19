@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./TaskForm.module.css";
+import TextField from "../TextField/TextField";
 
 function TaskForm({ onAddTask }) {
   const [newTask, setNewTask] = useState("");
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -23,7 +29,8 @@ function TaskForm({ onAddTask }) {
       <span className={styles.formPlus} aria-hidden="true">
         +
       </span>
-      <input
+      <TextField
+        ref={inputRef}
         id="new-task"
         type="text"
         value={newTask}

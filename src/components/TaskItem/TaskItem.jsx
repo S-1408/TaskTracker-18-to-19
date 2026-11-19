@@ -1,4 +1,5 @@
 import styles from "./TaskItem.module.css";
+import PriorityBadge from "../PriorityBadge/PriorityBadge";
 
 function TaskItem({ task, onToggle, onDelete }) {
   return (
@@ -23,6 +24,7 @@ function TaskItem({ task, onToggle, onDelete }) {
         )}
       </button>
       <span className={styles.taskTitle}>{task.title}</span>
+      <PriorityBadge priority={task.priority} />
       <button
         type="button"
         className={styles.deleteButton}
