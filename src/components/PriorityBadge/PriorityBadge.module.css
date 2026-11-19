@@ -1,0 +1,24 @@
+.badge {
+  display: inline-flex;
+  flex: 0 0 auto;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.priorityLow {
+  background: #edf4ee;
+  color: #4f795a;
+}
+
+.priorityMedium {
+  background: #f5f1e8;
+  color: #8a7140;
+}
+
+.priorityHigh {
+  background: #f8eaea;
+  color: #a34a4a;
+}
