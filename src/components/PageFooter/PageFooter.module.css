@@ -1,0 +1,19 @@
+.pageFooter {
+  display: flex;
+  min-height: 60px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  border-top: 1px solid rgba(54, 74, 59, 0.09);
+  color: #9ba198;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+}
+
+@media (max-width: 600px) {
+  .pageFooter {
+    min-height: 52px;
+    font-size: 8px;
+  }
+}

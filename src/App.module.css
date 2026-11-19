@@ -1,0 +1,31 @@
+.page-shell {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  padding: 0 7.1%;
+}
+
+.tracker {
+  width: min(100%, 620px);
+  margin: 0 auto;
+  padding: clamp(56px, 10vh, 105px) 0 48px;
+}
+
+.task-card {
+  overflow: hidden;
+  margin-top: 22px;
+  border: 1px solid #e8ebe5;
+  border-radius: 9px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(48, 61, 49, 0.035);
+}
+
+@media (max-width: 600px) {
+  .page-shell {
+    padding: 0 20px;
+  }
+
+  .tracker {
+    padding-top: 62px;
+  }
+}

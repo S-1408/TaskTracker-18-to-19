@@ -1,0 +1,59 @@
+.topbar {
+  display: flex;
+  height: 82px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(54, 74, 59, 0.09);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #293d31;
+  font-family: "Manrope", sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  text-decoration: none;
+}
+
+.brandMark {
+  display: grid;
+  width: 23px;
+  height: 23px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3px;
+  transform: rotate(-8deg);
+}
+
+.brandMark span {
+  border-radius: 2px;
+  background: var(--green);
+}
+
+.brandMark span:nth-child(2) {
+  opacity: 0.55;
+}
+
+.brandMark span:nth-child(3) {
+  grid-column: 1 / 3;
+  width: 65%;
+  opacity: 0.78;
+}
+
+.topbarNote {
+  color: #818a81;
+  font-size: 12px;
+  letter-spacing: 0.015em;
+}
+
+@media (max-width: 600px) {
+  .topbar {
+    height: 68px;
+  }
+
+  .topbarNote {
+    font-size: 10px;
+  }
+}

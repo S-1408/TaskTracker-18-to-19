@@ -1,0 +1,37 @@
+.emptyState {
+  display: flex;
+  min-height: 235px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.emptyIcon {
+  display: grid;
+  width: 37px;
+  height: 37px;
+  place-items: center;
+  margin-bottom: 13px;
+  border-radius: 50%;
+  background: #f1f5f0;
+  color: #6b8c73;
+  font-size: 18px;
+}
+
+.emptyTitle {
+  margin-bottom: 7px;
+  color: #49534b;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.emptyDescription {
+  max-width: 300px;
+  margin: 0;
+  color: #969d95;
+  font-size: 12px;
+  line-height: 1.6;
+}

@@ -1,0 +1,11 @@
+.taskList {
+  margin: 0;
+  padding: 0 21px;
+  list-style: none;
+}
+
+@media (max-width: 600px) {
+  .taskList {
+    padding: 0 15px;
+  }
+}

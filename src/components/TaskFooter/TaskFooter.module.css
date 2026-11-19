@@ -1,0 +1,39 @@
+.listFooter {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 21px;
+  border-top: 1px solid var(--line);
+  color: #929991;
+  font-size: 11px;
+}
+
+.listFooter strong {
+  color: #5d695f;
+  font-weight: 600;
+}
+
+.clearButton {
+  padding: 6px 0 6px 8px;
+  border: 0;
+  background: transparent;
+  color: #8b938b;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.clearButton:hover {
+  color: #a34a4a;
+}
+
+.clearButton:global(:focus-visible) {
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .listFooter {
+    padding: 0 15px;
+  }
+}

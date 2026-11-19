@@ -1,0 +1,110 @@
+.taskRow {
+  display: flex;
+  min-height: 62px;
+  align-items: center;
+  gap: 13px;
+  border-bottom: 1px solid #f0f1ee;
+}
+
+.taskRow:last-child {
+  border-bottom: 0;
+}
+
+.checkButton {
+  display: grid;
+  width: 19px;
+  height: 19px;
+  flex: 0 0 19px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #c9d0c8;
+  border-radius: 50%;
+  background: #fff;
+  color: #fff;
+  cursor: pointer;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.checkButton:hover {
+  border-color: var(--green);
+}
+
+.isComplete .checkButton {
+  border-color: var(--green);
+  background: var(--green);
+}
+
+.checkButton svg {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.taskTitle {
+  overflow-wrap: anywhere;
+  color: #424a43;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.isComplete .taskTitle {
+  color: #a3aaa2;
+  text-decoration: line-through;
+  text-decoration-color: #bcc3ba;
+}
+
+.deleteButton {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  place-items: center;
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: #a6ada5;
+  cursor: pointer;
+  opacity: 0;
+  transition: background 150ms ease, color 150ms ease, opacity 150ms ease;
+}
+
+.taskRow:hover .deleteButton,
+.deleteButton:global(:focus-visible) {
+  opacity: 1;
+}
+
+.deleteButton:hover {
+  background: #f8eeee;
+  color: #a34a4a;
+}
+
+.deleteButton svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.35;
+}
+
+.checkButton:global(:focus-visible),
+.deleteButton:global(:focus-visible) {
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .taskRow {
+    gap: 10px;
+  }
+
+  .deleteButton {
+    opacity: 1;
+  }
+}

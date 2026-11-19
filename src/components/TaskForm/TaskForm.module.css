@@ -1,0 +1,87 @@
+.taskForm {
+  display: flex;
+  min-height: 64px;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 9px 8px 17px;
+  border: 1px solid #e6e9e2;
+  border-radius: 9px;
+  background: #fff;
+  box-shadow: 0 5px 16px rgba(48, 61, 49, 0.035);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.taskForm:focus-within {
+  border-color: #9eb4a3;
+  box-shadow: 0 0 0 3px rgba(47, 100, 73, 0.08);
+}
+
+.taskForm input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #313a33;
+  font-size: 14px;
+}
+
+.taskForm input::placeholder {
+  color: #a4aaa3;
+}
+
+.formPlus {
+  color: #86978a;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.addButton {
+  flex: 0 0 auto;
+  padding: 11px 17px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--green);
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.addButton:hover {
+  background: #244f38;
+}
+
+.addButton:active {
+  transform: scale(0.98);
+}
+
+.srOnly {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.taskForm :global(:focus-visible),
+.addButton:global(:focus-visible) {
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .taskForm {
+    min-height: 58px;
+    gap: 9px;
+    padding-left: 13px;
+  }
+
+  .addButton {
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+}
