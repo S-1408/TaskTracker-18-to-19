@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 module.exports = (_env, argv) => ({
   devtool: argv.mode === "development" ? "eval-source-map" : false,
@@ -45,9 +46,15 @@ module.exports = (_env, argv) => ({
   resolve: {
     extensions: [".js", ".jsx"],
   },
+  optimization: { concatenateModules: false },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
-  ],
+      process.env.ANALYZE && new BundleAnalyzerPlugin({
+      analyzerMode: 'static',        // writes an HTML file instead of starting a server
+      reportFilename: 'bundle-report.html',
+      openAnalyzer: true,
+    }),
+  ].filter(Boolean)
 });
