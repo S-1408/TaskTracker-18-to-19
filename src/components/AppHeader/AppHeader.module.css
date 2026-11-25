@@ -3,14 +3,14 @@
   height: 82px;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(54, 74, 59, 0.09);
+  border-bottom: 1px solid var(--header-line);
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: #293d31;
+  color: var(--text-strong);
   font-family: "Manrope", sans-serif;
   font-size: 19px;
   font-weight: 800;
@@ -43,9 +43,62 @@
 }
 
 .topbarNote {
-  color: #818a81;
+  color: var(--text-muted);
   font-size: 12px;
   letter-spacing: 0.015em;
+}
+
+.authNavigation {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.authNavigation button {
+  padding: 6px 0;
+  border: 0;
+  background: transparent;
+  color: var(--text-green);
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.authNavigation button:last-child {
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+}
+
+.authNavigation button:hover {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+.themeButton {
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text-green);
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  transition:
+    background 150ms ease,
+    border-color 150ms ease;
+}
+
+.themeButton:hover {
+  border-color: var(--green);
+  background: var(--green-soft);
+}
+
+.themeButton:global(:focus-visible) {
+  outline-offset: 2px;
 }
 
 @media (max-width: 600px) {
@@ -54,6 +107,21 @@
   }
 
   .topbarNote {
+    display: none;
+  }
+
+  .authNavigation {
+    gap: 8px;
+  }
+
+  .themeButton {
+    padding: 6px 8px;
     font-size: 10px;
+  }
+}
+
+@media (max-width: 420px) {
+  .topbarNote {
+    display: none;
   }
 }

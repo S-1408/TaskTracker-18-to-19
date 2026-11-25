@@ -3,7 +3,7 @@
   min-height: 62px;
   align-items: center;
   gap: 13px;
-  border-bottom: 1px solid #f0f1ee;
+  border-bottom: 1px solid var(--line-soft);
 }
 
 .taskRow:last-child {
@@ -17,10 +17,10 @@
   flex: 0 0 19px;
   place-items: center;
   padding: 0;
-  border: 1px solid #c9d0c8;
+  border: 1px solid var(--control-border);
   border-radius: 50%;
-  background: #fff;
-  color: #fff;
+  background: var(--surface);
+  color: var(--text-on-accent);
   cursor: pointer;
   transition: border-color 150ms ease, background 150ms ease;
 }
@@ -45,16 +45,90 @@
 }
 
 .taskTitle {
+  flex: 1;
   overflow-wrap: anywhere;
-  color: #424a43;
+  color: var(--text-body);
   font-size: 13px;
   line-height: 1.5;
 }
 
+.dueDate {
+  color: var(--text-secondary);
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.overdue {
+  color: var(--danger);
+  font-weight: 600;
+}
+
 .isComplete .taskTitle {
-  color: #a3aaa2;
+  color: var(--text-disabled);
   text-decoration: line-through;
-  text-decoration-color: #bcc3ba;
+  text-decoration-color: var(--line-strike);
+}
+
+.editButton {
+  padding: 5px 7px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 11px;
+  opacity: 0;
+}
+
+.taskRow:hover .editButton,
+.editButton:global(:focus-visible) {
+  opacity: 1;
+}
+
+.editButton:hover {
+  background: var(--green-soft);
+  color: var(--green);
+}
+
+.editForm {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+}
+
+.editForm input,
+.editForm select {
+  min-width: 0;
+  padding: 6px;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  font: inherit;
+  font-size: 11px;
+}
+
+.editForm input:first-of-type {
+  flex: 1;
+}
+
+.editForm button {
+  padding: 6px 8px;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  background: var(--surface);
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.srOnly {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
 }
 
 .deleteButton {
@@ -68,7 +142,7 @@
   border: 0;
   border-radius: 5px;
   background: transparent;
-  color: #a6ada5;
+  color: var(--text-subtle);
   cursor: pointer;
   opacity: 0;
   transition: background 150ms ease, color 150ms ease, opacity 150ms ease;
@@ -80,8 +154,8 @@
 }
 
 .deleteButton:hover {
-  background: #f8eeee;
-  color: #a34a4a;
+  background: var(--danger-soft);
+  color: var(--danger);
 }
 
 .deleteButton svg {
@@ -95,6 +169,7 @@
 }
 
 .checkButton:global(:focus-visible),
+.editButton:global(:focus-visible),
 .deleteButton:global(:focus-visible) {
   outline-offset: 2px;
 }
@@ -105,6 +180,10 @@
   }
 
   .deleteButton {
+    opacity: 1;
+  }
+
+  .editButton {
     opacity: 1;
   }
 }

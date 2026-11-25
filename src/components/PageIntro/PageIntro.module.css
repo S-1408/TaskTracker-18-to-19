@@ -4,7 +4,7 @@
 
 .eyebrow {
   margin: 0 0 16px;
-  color: #68816f;
+  color: var(--text-green-muted);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -12,7 +12,7 @@
 
 .pageTitle {
   margin-bottom: 10px;
-  color: #27322a;
+  color: var(--text-heading);
   font-family: "Manrope", sans-serif;
   font-size: clamp(36px, 5vw, 48px);
   font-weight: 600;
@@ -22,7 +22,7 @@
 
 .introCopy {
   margin: 0;
-  color: #7d867d;
+  color: var(--text-secondary);
   font-size: 14px;
   line-height: 1.65;
 }

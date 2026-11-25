@@ -1,0 +1,129 @@
+.authPage {
+  display: grid;
+  width: min(100%, 440px);
+  flex: 1;
+  align-content: center;
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+.authCard {
+  padding: clamp(24px, 6vw, 42px);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 12px 30px var(--surface-shadow);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--text-green-muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.title {
+  margin: 0 0 8px;
+  color: var(--text-heading);
+  font-family: "Manrope", sans-serif;
+  font-size: 28px;
+  letter-spacing: -0.8px;
+}
+
+.description {
+  margin: 0 0 24px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.form {
+  display: grid;
+  gap: 16px;
+}
+
+.field {
+  display: grid;
+  gap: 7px;
+}
+
+.field label {
+  color: var(--text-body);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.field input {
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 11px;
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 13px;
+}
+
+.field input:focus-visible {
+  border-color: var(--green);
+}
+
+.submitButton {
+  min-height: 42px;
+  margin-top: 4px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--green);
+  color: var(--text-on-accent);
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.submitButton:hover {
+  background: var(--green-hover);
+}
+
+.notice {
+  margin: 16px 0 0;
+  padding: 10px;
+  border-radius: 6px;
+  background: var(--green-softer);
+  color: var(--text-body);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.switchMode {
+  margin: 20px 0 0;
+  color: var(--text-secondary);
+  font-size: 12px;
+  text-align: center;
+}
+
+.switchMode button,
+.backButton {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--green);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.backButton {
+  display: block;
+  margin: 18px auto 0;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.switchMode button:hover,
+.backButton:hover {
+  text-decoration: underline;
+}

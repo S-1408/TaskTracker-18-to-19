@@ -23,7 +23,7 @@
   padding: 0;
   border: 0;
   background: transparent;
-  color: #929991;
+  color: var(--text-muted);
   cursor: pointer;
   font-size: 12px;
   transition: color 150ms ease;
@@ -31,7 +31,7 @@
 
 .filterTab:hover,
 .filterTab.isActive {
-  color: #34493a;
+  color: var(--text-strong);
 }
 
 .filterTab.isActive {
@@ -54,13 +54,13 @@
   height: 18px;
   place-items: center;
   border-radius: 9px;
-  background: #eff3ee;
-  color: #607464;
+  background: var(--green-soft);
+  color: var(--green-text);
   font-size: 10px;
 }
 
 .listDate {
-  color: #a0a69e;
+  color: var(--text-subtle);
   font-size: 11px;
   white-space: nowrap;
 }

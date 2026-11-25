@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import styles from "./PriorityBadge.module.css";
 
 const PRIORITY_STYLES = {
@@ -7,7 +6,7 @@ const PRIORITY_STYLES = {
   high: styles.priorityHigh,
 };
 
-function PriorityBadge({ priority }) {
+function PriorityBadge({ priority = "medium" }) {
   const label = priority[0].toUpperCase() + priority.slice(1);
 
   return (
@@ -16,13 +15,5 @@ function PriorityBadge({ priority }) {
     </span>
   );
 }
-
-PriorityBadge.propTypes = {
-  priority: PropTypes.oneOf(["low", "medium", "high"]),
-};
-
-PriorityBadge.defaultProps = {
-  priority: "medium",
-};
 
 export default PriorityBadge;

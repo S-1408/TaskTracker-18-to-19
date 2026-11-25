@@ -1,6 +1,6 @@
 # Daymark — Task Tracker
 
-A small task tracker built with React, JSX, and Webpack. Tasks are saved in the browser, so no account or backend is needed.
+A small task tracker built with React and Vite. Tasks are saved in the browser, so no account or backend is needed.
 
 ## Dependencies and why
 
@@ -12,7 +12,7 @@ These are packages the app needs while it runs.
 | --- | --- |
 | `react` | Builds the interface from reusable components and manages UI state with hooks. |
 | `react-dom` | Mounts the React app into the page's `#root` element. |
-| `prop-types` | Provides runtime prop validation for the React 18 migration example. |
+| `prop-types` | Provides runtime prop validation for the class-based `TaskStats` component. |
 
 ### Development dependencies
 
@@ -20,16 +20,11 @@ These tools are used to develop, test, format, lint, or build the app; the stati
 
 | Dependency | Why it is used |
 | --- | --- |
-| `webpack` | Bundles the app for development and production. |
-| `webpack-cli` | Provides the `webpack` command used by the build script. |
-| `webpack-dev-server` | Serves the app locally and supports hot reload while developing. |
+| `vite` | Serves the app locally and bundles it for production. |
+| `@vitejs/plugin-react` | Enables React Fast Refresh and React support in Vite. |
 | `@babel/core` | Runs the JavaScript/JSX transpilation pipeline. |
 | `@babel/preset-env` | Transforms modern JavaScript syntax for configured browser targets. |
 | `@babel/preset-react` | Transforms JSX into React calls. |
-| `babel-loader` | Connects Babel to Webpack's JavaScript module pipeline. |
-| `html-webpack-plugin` | Generates the page from `public/index.html` and adds the bundled script. |
-| `css-loader` | Resolves CSS imports and turns each `.module.css` file into scoped class-name mappings. |
-| `style-loader` | Injects the processed styles into the page. |
 | `eslint`, `@eslint/js`, `eslint-plugin-react`, `eslint-plugin-react-hooks`, `globals` | Check source code for common JavaScript, React, and hooks mistakes. |
 | `prettier` | Formats source files consistently. |
 | `jest`, `jest-environment-jsdom`, `@testing-library/react`, `@testing-library/jest-dom` | Run UI tests in a browser-like environment and make DOM assertions. |
@@ -45,7 +40,11 @@ npm run dev
 # npm start is an alias for the same development server
 ```
 
-Webpack opens the app at `http://localhost:3000`. To create a production build, run `npm run build`; the output is written to `dist/`.
+Vite prints the local development URL after startup. To create a production build, run `npm run build`; the output is written to `dist/`.
+
+## Deployment
+
+Use Node.js `20.19.0+` (below 21) or `22.12.0+`. Run `npm run build` in the deployment build step and publish the generated `dist/` directory with a static hosting provider. `npm start` is a development-server alias, not a production server; do not expose it as the production service. Configure the host to serve `index.html` for application routes if client-side routes are added.
 
 ## Quality scripts
 
@@ -60,15 +59,21 @@ Webpack opens the app at `http://localhost:3000`. To create a production build, 
 
 This project is still JavaScript, so it has no `typecheck` script. Add one with the TypeScript migration.
 
-Webpack source maps are enabled in development (`eval-source-map`) to help debug original source files. They are disabled for production builds.
-
 ## Features
 
 - Add tasks, mark them complete, and delete them
+- Switch between light and dark themes; your choice is saved on this device
+- Open login and sign-up UI previews (authentication is not connected)
+- Edit tasks and set priority or due dates
+- Organize tasks into projects; search and sort each project's tasks
+- Undo recent deletions and completed-task clearing
+- Export and restore a versioned JSON backup
 - Filter between all, active, and completed tasks
 - Clear completed tasks in one action
 - Keep tasks between visits with browser local storage
 - Responsive layout with keyboard-accessible controls
+
+See [Production features and API contract](./docs/production-features-and-api-contract.md) for the implemented feature list, offline-first limitations, and a proposed backend API contract. The API is documentation only; cross-device sync is not implemented.
 
 ## Keyboard accessibility check
 
@@ -126,21 +131,25 @@ src/
     TextField/
       TextField.jsx
       TextField.module.css
+    WorkspaceToolbar/
+      WorkspaceToolbar.jsx
+      WorkspaceToolbar.module.css
   hooks/        Task state and task actions
   utils/        Local-storage helpers
   App.jsx       Page composition and filter selection
   App.module.css Page layout styles
   index.jsx     React entry point
   styles.css    Global base/reset styles
+docs/
+  react-18-to-19-migration.md
+  production-features-and-api-contract.md
 ```
 
-## React 18-to-19 migration examples
+## React 18-to-19 migration
 
-- `PriorityBadge` uses function-component `propTypes` and `defaultProps`.
-- `TaskStats` is a class component with the legacy string ref `ref="box"`.
-- `TextField` uses `forwardRef` so `TaskForm` can focus its input when mounted.
+The app now uses React 19. `TaskForm` uses `useActionState` to handle form submission and validation. `PriorityBadge` uses a JavaScript parameter default instead of function-component `defaultProps`/`propTypes`, and `TextField` accepts `ref` as a regular prop instead of using `forwardRef`. The React 18 `ReactDOM.render` API has been replaced by `createRoot`.
 
-These are intentional React 18 examples for practicing the React 19 migration. Review and migrate them before upgrading; do not copy these legacy patterns into new components.
+See the [React 18-to-19 migration guide](./docs/react-18-to-19-migration.md) for the preflight checklist, migration steps, verification, and a codemod strategy for either a whole app or a targeted design-system adoption.
 
 ## Migration ideas: why, what, and how to measure
 

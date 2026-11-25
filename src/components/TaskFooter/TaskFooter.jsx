@@ -1,7 +1,14 @@
 import styles from "./TaskFooter.module.css";
 import TaskStats from "../TaskStats/TaskStats";
 
-function TaskFooter({ remainingCount, completedCount, onClearCompleted }) {
+function TaskFooter({
+  remainingCount,
+  completedCount,
+  onClearCompleted,
+  canUndo,
+  undoMessage,
+  onUndo,
+}) {
   return (
     <footer className={styles.listFooter}>
       <TaskStats
@@ -16,6 +23,14 @@ function TaskFooter({ remainingCount, completedCount, onClearCompleted }) {
         >
           Clear completed
         </button>
+      )}
+      {canUndo && (
+        <div className={styles.undoGroup} role="status">
+          <span>{undoMessage}</span>
+          <button type="button" onClick={onUndo}>
+            Undo
+          </button>
+        </div>
       )}
     </footer>
   );
