@@ -4,9 +4,9 @@ import {
   PRIORITIES,
   readWorkspace,
   STORAGE_KEY,
-} from "../utils/taskStorage";
+} from "./taskStorage";
 
-function useTasks() {
+function useWorkspace() {
   const [workspace, setWorkspace] = useState(readWorkspace);
   const [undoSnapshot, setUndoSnapshot] = useState(null);
   const tasks = workspace.tasks;
@@ -177,4 +177,4 @@ function useTasks() {
   };
 }
 
-export default useTasks;
+export default useWorkspace;

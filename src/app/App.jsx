@@ -1,18 +1,18 @@
 import { useEffect, useMemo, useState } from "react";
 import styles from "./App.module.css";
-import AuthPage from "./components/AuthPage/AuthPage";
-import AppHeader from "./components/AppHeader/AppHeader";
-import PageFooter from "./components/PageFooter/PageFooter";
-import PageIntro from "./components/PageIntro/PageIntro";
-import PrivacyNote from "./components/PrivacyNote/PrivacyNote";
-import TaskFilters from "./components/TaskFilters/TaskFilters";
-import TaskFooter from "./components/TaskFooter/TaskFooter";
-import TaskForm from "./components/TaskForm/TaskForm";
-import TaskList from "./components/TaskList/TaskList";
-import WorkspaceToolbar from "./components/WorkspaceToolbar/WorkspaceToolbar";
-import useTasks from "./hooks/useTasks";
-import useTheme from "./hooks/useTheme";
-import { DEFAULT_PROJECT_ID } from "./utils/taskStorage";
+import AuthPage from "../features/auth/components/AuthPage/AuthPage";
+import TaskFilters from "../features/tasks/components/TaskFilters/TaskFilters";
+import TaskFooter from "../features/tasks/components/TaskFooter/TaskFooter";
+import TaskForm from "../features/tasks/components/TaskForm/TaskForm";
+import TaskList from "../features/tasks/components/TaskList/TaskList";
+import useWorkspace from "../features/workspace/useWorkspace";
+import { DEFAULT_PROJECT_ID } from "../features/workspace/taskStorage";
+import useTheme from "../features/theme/useTheme";
+import AppHeader from "../shared/layout/AppHeader/AppHeader";
+import PageFooter from "../shared/layout/PageFooter/PageFooter";
+import PageIntro from "../shared/layout/PageIntro/PageIntro";
+import PrivacyNote from "../shared/layout/PrivacyNote/PrivacyNote";
+import WorkspaceToolbar from "../features/workspace/components/WorkspaceToolbar/WorkspaceToolbar";
 
 function App() {
   const {
@@ -29,7 +29,7 @@ function App() {
     createProject,
     importWorkspace,
     exportWorkspace,
-  } = useTasks();
+  } = useWorkspace();
   const { theme, toggleTheme } = useTheme();
   const [authPage, setAuthPage] = useState(null);
   const [filter, setFilter] = useState("All");

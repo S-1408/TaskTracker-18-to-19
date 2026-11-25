@@ -1,5 +1,5 @@
 import { useId, useRef, useState } from "react";
-import { parseWorkspaceBackup } from "../../utils/taskStorage";
+import { parseWorkspaceBackup } from "../../taskStorage";
 import styles from "./WorkspaceToolbar.module.css";
 
 function WorkspaceToolbar({

@@ -91,59 +91,25 @@ For screen-reader coverage, repeat the flow with a screen reader such as Windows
 
 ```text
 src/
-  components/
-    AppHeader/
-      AppHeader.jsx
-      AppHeader.module.css
-    EmptyState/
-      EmptyState.jsx
-      EmptyState.module.css
-    PageFooter/
-      PageFooter.jsx
-      PageFooter.module.css
-    PageIntro/
-      PageIntro.jsx
-      PageIntro.module.css
-    PriorityBadge/
-      PriorityBadge.jsx
-      PriorityBadge.module.css
-    PrivacyNote/
-      PrivacyNote.jsx
-      PrivacyNote.module.css
-    TaskFilters/
-      TaskFilters.jsx
-      TaskFilters.module.css
-    TaskFooter/
-      TaskFooter.jsx
-      TaskFooter.module.css
-    TaskForm/
-      TaskForm.jsx
-      TaskForm.module.css
-    TaskItem/
-      TaskItem.jsx
-      TaskItem.module.css
-    TaskList/
-      TaskList.jsx
-      TaskList.module.css
-    TaskStats/
-      TaskStats.jsx
-      TaskStats.module.css
-    TextField/
-      TextField.jsx
-      TextField.module.css
-    WorkspaceToolbar/
-      WorkspaceToolbar.jsx
-      WorkspaceToolbar.module.css
-  hooks/        Task state and task actions
-  utils/        Local-storage helpers
-  App.jsx       Page composition and filter selection
-  App.module.css Page layout styles
-  index.jsx     React entry point
-  styles.css    Global base/reset styles
+  app/                 App composition, styles, integration tests
+  features/
+    auth/              Login/sign-up UI
+    tasks/             Task UI and task-specific behavior
+    theme/             Theme preference hook
+    workspace/         Projects, workspace actions, and persistence
+  shared/
+    components/        Reusable inputs and primitives
+    layout/            Shared application shell components
+  index.jsx            React entry point
+  styles.css           Global styles and theme tokens
 docs/
   react-18-to-19-migration.md
   production-features-and-api-contract.md
 ```
+
+### Architecture choice: feature-oriented structure
+
+The source is organized by product domain: task UI stays in `features/tasks`, workspace/project data and persistence in `features/workspace`, and auth/theme concerns in their own feature folders. `app/` composes those features; `shared/` is reserved for components that are genuinely reusable across domains. This makes feature ownership and future changes easier to find without treating every component as globally shared. Keep component styles beside their component, and avoid moving feature-specific code into `shared/`.
 
 ## React 18-to-19 migration
 
