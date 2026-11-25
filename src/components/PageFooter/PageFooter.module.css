@@ -4,8 +4,8 @@
   align-items: center;
   justify-content: space-between;
   margin-top: auto;
-  border-top: 1px solid rgba(54, 74, 59, 0.09);
-  color: #9ba198;
+  border-top: 1px solid var(--header-line);
+  color: var(--text-subtle);
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.13em;

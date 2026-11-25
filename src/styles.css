@@ -2,8 +2,8 @@
 
 :root {
   font-family: "DM Sans", sans-serif;
-  color: #242a25;
-  background: #f5f6f2;
+  color: var(--text-primary);
+  background: var(--page-bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -11,9 +11,88 @@
   font-optical-sizing: auto;
   font-weight: 400;
 
-  --green: #2f6449;
-  --muted: #8b938b;
+  color-scheme: light;
+  --page-bg: #f5f6f2;
+  --surface: #ffffff;
+  --surface-overlay: rgba(255, 255, 255, 0.78);
+  --text-primary: #242a25;
+  --text-heading: #27322a;
+  --text-strong: #34493a;
+  --text-body: #424a43;
+  --text-green: #435448;
+  --text-green-muted: #68816f;
+  --text-secondary: #7d867d;
+  --text-muted: #929991;
+  --text-subtle: #a0a69e;
+  --text-faint: #a4aaa3;
+  --text-disabled: #a3aaa2;
   --line: #e9ece6;
+  --line-soft: #f0f1ee;
+  --line-strike: #bcc3ba;
+  --input-border: #e3e7e0;
+  --control-border: #c9d0c8;
+  --green: #2f6449;
+  --green-hover: #244f38;
+  --green-soft: #eff3ee;
+  --green-softer: #f1f5f0;
+  --green-text: #607464;
+  --green-soft-text: #6b8c73;
+  --danger: #a34a4a;
+  --danger-soft: #f8eeee;
+  --focus-ring: rgba(47, 100, 73, 0.35);
+  --focus-shadow: rgba(47, 100, 73, 0.08);
+  --surface-shadow: rgba(48, 61, 49, 0.035);
+  --overlay-shadow: rgba(48, 61, 49, 0.12);
+  --header-line: rgba(54, 74, 59, 0.09);
+  --page-glow: rgba(255, 255, 255, 0.78);
+  --priority-low-bg: #edf4ee;
+  --priority-low-text: #4f795a;
+  --priority-medium-bg: #f5f1e8;
+  --priority-medium-text: #8a7140;
+  --priority-high-bg: #f8eaea;
+  --text-on-accent: #ffffff;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page-bg: #151a16;
+  --surface: #202821;
+  --surface-overlay: rgba(32, 40, 33, 0.94);
+  --text-primary: #e6ede6;
+  --text-heading: #eef3ed;
+  --text-strong: #c4d5c7;
+  --text-body: #d3ddd4;
+  --text-green: #c0d2c3;
+  --text-green-muted: #a7bba9;
+  --text-secondary: #a6b1a7;
+  --text-muted: #a1aca2;
+  --text-subtle: #929e93;
+  --text-faint: #879489;
+  --text-disabled: #7d897e;
+  --line: #354138;
+  --line-soft: #303a32;
+  --line-strike: #526055;
+  --input-border: #465349;
+  --control-border: #58665a;
+  --green: #315f40;
+  --green-hover: #3e7650;
+  --green-soft: #2b382d;
+  --green-softer: #263229;
+  --green-text: #b6cbb9;
+  --green-soft-text: #a4c5a9;
+  --danger: #e29a96;
+  --danger-soft: #422d2d;
+  --focus-ring: rgba(144, 194, 151, 0.65);
+  --focus-shadow: rgba(144, 194, 151, 0.16);
+  --surface-shadow: rgba(0, 0, 0, 0.22);
+  --overlay-shadow: rgba(0, 0, 0, 0.4);
+  --header-line: rgba(222, 237, 224, 0.12);
+  --page-glow: rgba(255, 255, 255, 0.025);
+  --priority-low-bg: #29392d;
+  --priority-low-text: #afd0b3;
+  --priority-medium-bg: #3a3528;
+  --priority-medium-text: #ddc58e;
+  --priority-high-bg: #442e2e;
 }
 
 * {
@@ -25,8 +104,8 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    radial-gradient(ellipse at 48% 42%, rgba(255, 255, 255, 0.78), transparent 49%),
-    #f5f6f2;
+    radial-gradient(ellipse at 48% 42%, var(--page-glow), transparent 49%),
+    var(--page-bg);
 }
 
 button,
@@ -44,7 +123,7 @@ p {
 }
 
 :focus-visible {
-  outline: 3px solid rgba(47, 100, 73, 0.35);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 3px;
 }
 

@@ -1,0 +1,113 @@
+.toolbar {
+  display: grid;
+  gap: 12px;
+  margin: 14px 0;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-overlay);
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+
+.projectRow,
+.searchRow,
+.backupRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.projectRow > select,
+.searchRow > input,
+.searchRow > select,
+.projectDetails input {
+  min-width: 0;
+  padding: 7px 8px;
+  border: 1px solid var(--input-border);
+  border-radius: 5px;
+  background: var(--surface);
+  color: var(--text-body);
+  font: inherit;
+}
+
+.projectRow > select {
+  max-width: 45%;
+}
+
+.searchRow > input {
+  flex: 1;
+}
+
+.projectDetails {
+  position: relative;
+  margin-left: auto;
+}
+
+.projectDetails summary {
+  color: var(--green);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.projectDetails form {
+  position: absolute;
+  z-index: 1;
+  top: 24px;
+  right: 0;
+  display: grid;
+  width: min(260px, 80vw);
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--surface);
+  box-shadow: 0 8px 24px var(--overlay-shadow);
+}
+
+.projectDetails button,
+.backupRow button {
+  padding: 7px 9px;
+  border: 1px solid var(--input-border);
+  border-radius: 5px;
+  background: var(--surface);
+  color: var(--text-green);
+  cursor: pointer;
+  font: inherit;
+}
+
+.projectDetails form span {
+  color: var(--danger);
+}
+
+.backupRow {
+  flex-wrap: wrap;
+}
+
+.backupRow button {
+  color: var(--green);
+}
+
+.backupMessage {
+  flex: 1;
+}
+
+.srOnly {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@media (max-width: 480px) {
+  .searchRow {
+    flex-wrap: wrap;
+  }
+
+  .searchRow > input {
+    flex-basis: 100%;
+  }
+}

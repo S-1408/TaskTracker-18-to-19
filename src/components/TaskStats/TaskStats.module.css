@@ -5,12 +5,12 @@
 }
 
 .stats strong {
-  color: #5d695f;
+  color: var(--text-green);
   font-weight: 600;
 }
 
 .stats span + span {
-  color: #a0a69e;
+  color: var(--text-subtle);
 }
 
 @media (max-width: 600px) {

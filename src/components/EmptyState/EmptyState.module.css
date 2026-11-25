@@ -15,14 +15,14 @@
   place-items: center;
   margin-bottom: 13px;
   border-radius: 50%;
-  background: #f1f5f0;
-  color: #6b8c73;
+  background: var(--green-softer);
+  color: var(--green-soft-text);
   font-size: 18px;
 }
 
 .emptyTitle {
   margin-bottom: 7px;
-  color: #49534b;
+  color: var(--text-body);
   font-family: "Manrope", sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -31,7 +31,7 @@
 .emptyDescription {
   max-width: 300px;
   margin: 0;
-  color: #969d95;
+  color: var(--text-muted);
   font-size: 12px;
   line-height: 1.6;
 }

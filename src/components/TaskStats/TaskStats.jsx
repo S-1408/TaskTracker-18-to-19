@@ -7,7 +7,7 @@ class TaskStats extends Component {
     const { remainingCount, completedCount } = this.props;
 
     return (
-      <div className={styles.stats} ref="box">
+      <div className={styles.stats}>
         <span>
           <strong>{remainingCount}</strong>{" "}
           {remainingCount === 1 ? "task" : "tasks"} left

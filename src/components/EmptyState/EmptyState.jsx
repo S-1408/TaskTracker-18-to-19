@@ -1,6 +1,6 @@
 import styles from "./EmptyState.module.css";
 
-function EmptyState({ filter, hasTasks }) {
+function EmptyState({ filter, hasTasks, isSearching }) {
   const isCompletedFilter = filter === "Completed";
   const isCaughtUp = filter === "Active" && hasTasks;
 
@@ -10,14 +10,18 @@ function EmptyState({ filter, hasTasks }) {
         {isCompletedFilter ? "✓" : "✳"}
       </span>
       <h2 className={styles.emptyTitle}>
-        {isCompletedFilter
+        {isSearching
+          ? "No matching tasks"
+          : isCompletedFilter
           ? "Nothing checked off yet"
           : isCaughtUp
             ? "You’re all caught up"
             : "A clear page is a good start"}
       </h2>
       <p className={styles.emptyDescription}>
-        {isCompletedFilter
+        {isSearching
+          ? "Try a different search or clear the search field."
+          : isCompletedFilter
           ? "Finished tasks will find their place here."
           : isCaughtUp
             ? "Enjoy the breathing room. You’ve done everything on your list."

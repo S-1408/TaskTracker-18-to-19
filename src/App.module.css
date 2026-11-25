@@ -14,10 +14,10 @@
 .task-card {
   overflow: hidden;
   margin-top: 22px;
-  border: 1px solid #e8ebe5;
+  border: 1px solid var(--line);
   border-radius: 9px;
-  background: #fff;
-  box-shadow: 0 12px 30px rgba(48, 61, 49, 0.035);
+  background: var(--surface);
+  box-shadow: 0 12px 30px var(--surface-shadow);
 }
 
 @media (max-width: 600px) {
